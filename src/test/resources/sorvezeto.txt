@@ -1,0 +1,11 @@
+Tesco bevásárlás
+https://bevasarlas.tesco.hu/groceries/hu-HU
+
+- főoldal (cookie elfogadása)
+- nyelvváltás
+- regisztráció (fennti menüben vagy oldal jobbközép tájon)
+- bejelentkezés
+- keresés
+-- bevásárlás/pékárú/összes pékárú/szűrés (Kategória) torta/Kata Sacher torta (2db) hozzáad gomb
+-- bevásárlókosár ellenőrzése
+...
