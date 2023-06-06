@@ -46,7 +46,7 @@ public class TescoSteps {
         // init driver
         driver = new ChromeDriver(chromeOptions);
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        driver.manage().window().setSize(new Dimension(900, 900)); // ...selenium.Dimension
+        driver.manage().window().setSize(new Dimension(1200, 900)); // ...selenium.Dimension
     }
 
 
