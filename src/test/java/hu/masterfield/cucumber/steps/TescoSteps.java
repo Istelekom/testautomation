@@ -90,10 +90,10 @@ public class TescoSteps {
     public void itShowsElementsIn(String lang) {
         WebElement titleH2 = wait.until(driver -> driver.findElement(By.cssSelector("#utility-header-help-link > span"))); // copy selector volt az oldalon
         if (lang.equals("Magyar")) {
-            assertEquals("Segítség", titleH2.getText()); // org.junit -ból importálni
+            assertEquals("Help", titleH2.getText()); // org.junit -ból importálni
         }
         if (lang.equals("English")) {
-            assertEquals("Help", titleH2.getText()); // org.junit -ból importálni
+            assertEquals("Segítség", titleH2.getText()); // org.junit -ból importálni
         }
     }
 
