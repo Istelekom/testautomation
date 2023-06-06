@@ -41,6 +41,7 @@ public class TescoSteps {
         // set chrome options
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments(props.getProperty("chrome.arguments"));
+        chromeOptions.addArguments("--disable-blink-features=AutomationControlled"); // hogy ne legyen Access denied az oldalon
 
         // init driver
         driver = new ChromeDriver(chromeOptions);
@@ -59,7 +60,7 @@ public class TescoSteps {
         driver.get("https://bevasarlas.tesco.hu/groceries/hu-HU/");
     }
 
-    /*
+
     @And("accept cookies")
     public void acceptCookies() {
 
@@ -68,18 +69,15 @@ public class TescoSteps {
         WebElement acceptButton = wait.until(driver -> driver.findElement(By.xpath("/html/body/div[1]/div/div/div[1]/div/span/div/div/div[2]/form[1]/button")));
         acceptButton.click();
     }
-    */
+
 
     @And("language is set to {string}")
     public void languageIsSetTo(String lang /* Magyar */) {
 
-        WebElement languetable = wait.until(driver -> driver.findElement(By.id("languagetable")));
+        WebElement languetable = wait.until(driver -> driver.findElement(By.id("utility-header-language-switch-link")));
 
         if (lang.equals("Magyar")) {
-            driver.findElement(By.cssSelector("#languagetable > span:nth-child(1)")).click(); // a span 1. gyereke
-        }
-        if (lang.equals("English")) {
-            driver.findElement(By.cssSelector("#languagetable > span:nth-child(2)")).click(); // második gyerek
+            driver.findElement(By.cssSelector("#utility-header-language-switch-link")).click();
         }
     }
 

@@ -14,8 +14,8 @@ Feature: The use shall be able to change the language in Tesco website
 
       Examples:
         | language | new_language |
-        | Magyar   | English      |
         | English  | Magyar       |
+        | Magyar   | English      |
 
     @TC_ChangeLangWithDataTable
     Scenario: Change language with data table
