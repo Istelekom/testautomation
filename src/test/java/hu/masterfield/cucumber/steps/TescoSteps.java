@@ -76,7 +76,10 @@ public class TescoSteps {
 
         WebElement languetable = wait.until(driver -> driver.findElement(By.id("utility-header-language-switch-link")));
 
-        if (lang.equals("Magyar")) {
+        if (lang.equals("English")) {
+            // nincs kattintás
+        }
+        else {
             driver.findElement(By.cssSelector("#utility-header-language-switch-link")).click();
         }
     }
