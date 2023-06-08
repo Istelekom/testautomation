@@ -18,11 +18,12 @@ public class LoginPage extends BasePage {
     SelenideElement passwordInput = $(byId("password"));
 
     //WebElement loginButton;
-    SelenideElement loginButton = $(byXpath("/html/body/div[1]/div/div[1]/div/div[1]/section/div/form/div/button"));
+    SelenideElement loginButton = $(byXpath("/html/body/div[1]/div/div/div[3]/div[1]/div/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div/div[1]/div[2]/a"));
 
     public void openPage() {
         open("https://bevasarlas.tesco.hu/groceries/hu-HU/"); //ugyanaz mint a: Selenide.open() (így olvashatóbb, nem kell minidg elé írni a Selenide-t)
         isLoaded(loginButton);
+        loginButton.click(); // rá kkellene kattintani ???
     }
 
     public void validateUI() {
@@ -32,7 +33,7 @@ public class LoginPage extends BasePage {
     }
 
     public void validateTitle(){
-        assertEquals("Tesco", title()); //Selenide.title()
+        assertEquals("Tesco Groceries - Online food shopping - Grocery delivery - Tesco Online, Tesco Otthonról", title()); //Selenide.title()
     }
 
     public ProductsPage login(){

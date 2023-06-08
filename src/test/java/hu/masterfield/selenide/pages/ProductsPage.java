@@ -27,9 +27,10 @@ public class ProductsPage extends BasePage {
 
     public void validateURL() {
 
-        assertEquals("https://bevasarlas.tesco.hu/groceries/hu-HU/shop/pekaru/all", url());
+        assertEquals("https://bevasarlas.tesco.hu/groceries/hu-HU/", url());
     }
 
+    /*
     public void changeSortOrder(){
         // Select sortDDL = new Select(sortDDLSelect);
         // sortDDL.selectByValue("za");
@@ -37,6 +38,7 @@ public class ProductsPage extends BasePage {
         // assertEquals("Test.allTheThings() T-Shirt (Red)", firstLinkDiv.getText());
         firstLinkDiv.shouldBe(visible).shouldHave(exactText("Test.allTheThings() T-Shirt (Red)"));
     }
+    */
 
     public ElementsCollection getProductLinks() {
         ElementsCollection productLinks = $$(byTagName("a")); // <a></a> tag

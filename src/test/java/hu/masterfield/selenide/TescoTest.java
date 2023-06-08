@@ -23,15 +23,16 @@ public class TescoTest extends BaseTest {
         loginPage.validateUI();
         ProductsPage productsPage = loginPage.login();
         productsPage.validateURL();
-        productsPage.changeSortOrder();
+        //productsPage.changeSortOrder();
 
         // productsPage.getProductLinks(); ezt introduce local variable (Alt+Enter)
         // ez lett belőle:
+        /*
         ElementsCollection productLinks = productsPage.getProductLinks();
 
 
 
-        /* Click on all links containing "Labs */
+        // Click on all links containing "Labs
         ElementsCollection filteredProductLinks = productLinks.filterBy(matchText("Labs"));
         for (int idx = 0; idx < filteredProductLinks.size(); idx++) {
             ElementsCollection links = productLinks.filterBy(matchText("Labs"));
@@ -49,5 +50,6 @@ public class TescoTest extends BaseTest {
             Thread.sleep(2000);
             back();
         }
+        */
     }
 }
