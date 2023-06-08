@@ -6,7 +6,7 @@ import org.junit.jupiter.api.BeforeAll;
 
 public class BaseTest {
     @BeforeAll
-    public static void setip() {
+    public static void setup() {
         Configuration.reportsFolder = "target/reports";
         // Configuration. milyen browsert indítson el stb...
     }
