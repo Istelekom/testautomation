@@ -72,17 +72,27 @@ public class TescoSteps {
 
 
     @And("language is set to {string}")
-    public void languageIsSetTo(String lang /* Magyar */) {
-
-        WebElement languetable = wait.until(driver -> driver.findElement(By.id("utility-header-language-switch-link")));
-
-        if (lang.equals("English")) {
-            // nincs kattintás
+    public void languageIsSetTo(String lang /* magyar vagy angol */) {
+        WebElement langButton = wait.until(driver -> driver.findElement(By.xpath("//*[@id=\"utility-header-language-switch-link\"]/span/span")));
+        if ((langButton.getText().equals("Magyar") &&
+                lang.equals("magyar")) ||
+                (langButton.getText().equals("English") &&
+                        lang.equals("angol"))) {
+            langButton.click();
         }
-        else {
-            driver.findElement(By.cssSelector("#utility-header-language-switch-link")).click();
-        }
+
+        /*  eredetileg így volt...
+            WebElement languetable = wait.until(driver -> driver.findElement(By.id("utility-header-language-switch-link")));
+            if (lang.equals("English")) {
+                // nincs kattintás
+            }
+            else {
+                driver.findElement(By.cssSelector("#utility-header-language-switch-link")).click();
+            }
+        */
+
     }
+
 
     @When("change the language to {string}")
     public void changeTheLanguageTo(String newLang) {
@@ -92,10 +102,10 @@ public class TescoSteps {
     @Then("it shows elements in {string}")
     public void itShowsElementsIn(String lang) {
         WebElement titleH2 = wait.until(driver -> driver.findElement(By.cssSelector("#utility-header-help-link > span"))); // copy selector volt az oldalon
-        if (lang.equals("Magyar")) {
+        if (lang.equals("angol")) {
             assertEquals("Help", titleH2.getText()); // org.junit -ból importálni
         }
-        if (lang.equals("English")) {
+        if (lang.equals("magyar")) {
             assertEquals("Segítség", titleH2.getText()); // org.junit -ból importálni
         }
     }

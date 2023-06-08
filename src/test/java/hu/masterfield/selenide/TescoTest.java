@@ -2,6 +2,7 @@ package hu.masterfield.selenide;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import hu.masterfield.selenide.pages.AccountHomePage;
 import hu.masterfield.selenide.pages.LoginPage;
 import hu.masterfield.selenide.pages.ProductsPage;
 
@@ -21,35 +22,12 @@ public class TescoTest extends BaseTest {
         loginPage.openPage();
         loginPage.validateTitle();
         loginPage.validateUI();
-        ProductsPage productsPage = loginPage.login();
-        productsPage.validateURL();
-        //productsPage.changeSortOrder();
+        AccountHomePage accountHomePage = loginPage.login();
+        accountHomePage.validate();
 
-        // productsPage.getProductLinks(); ezt introduce local variable (Alt+Enter)
-        // ez lett belőle:
-        /*
-        ElementsCollection productLinks = productsPage.getProductLinks();
-
-
-
-        // Click on all links containing "Labs
-        ElementsCollection filteredProductLinks = productLinks.filterBy(matchText("Labs"));
-        for (int idx = 0; idx < filteredProductLinks.size(); idx++) {
-            ElementsCollection links = productLinks.filterBy(matchText("Labs"));
-
-            productsPage.changeSortOrder(); // Berka Tomi javasolta
-
-            SelenideElement link = links.get(idx);
-            link.shouldBe(visible);
-            link.click();
-
-            //takeScreenshot("screenshot" + idx);
-            saveScreenshotAndPageSource();
-            // a target mappa reports almappájában-ban lesznek
-
-            Thread.sleep(2000);
-            back();
-        }
-        */
+        // ProductsPage helyett AccountHomePage
+        // ProductsPage productsPage = loginPage.login();
+        // productsPage.validateURL();
+        // productsPage.changeSortOrder();
     }
 }

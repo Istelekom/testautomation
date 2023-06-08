@@ -14,15 +14,15 @@ Feature: The user shall be able to change the language in Tesco website
 
       Examples:
         | language | new_language |
-        | Magyar   | English      |
-      #  | English  | Magyar       |
+        | magyar   | angol        |
+        | angol    | magyar       |
       # mivel ujbol megnyitja az oldalt, így a masodik pelda nem mukodne ebben az esetben
 
     @TC_ChangeLangWithDataTable
     Scenario: Change language with data table
-      Given language is set to "Magyar"
+      Given language is set to "magyar"
       When change the language to
         | lang    | code |
-        | Magyar  | HUN  |
-        | English | ENG  |
-      Then it shows elements in "English"
+        | magyar  | HUN  |
+        | angol   | ENG  |
+      Then it shows elements in "angol"

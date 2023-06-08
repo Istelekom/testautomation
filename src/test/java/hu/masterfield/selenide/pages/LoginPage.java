@@ -36,12 +36,12 @@ public class LoginPage extends BasePage {
         assertEquals("Tesco Groceries - Online food shopping - Grocery delivery - Tesco Online, Tesco Otthonról", title()); //Selenide.title()
     }
 
-    public ProductsPage login(){
+    public AccountHomePage login(){
         emailInput.setValue("proba1@email.hu");
         // userNameInput.sendKeys("standard_user");
         // DE sendKeys-et átírjuk setValue-re mert ez törli, beállítja, többet csinál
         passwordInput.setValue("ProbaJelszo123");
         loginButton.click();
-        return new ProductsPage();
+        return new AccountHomePage();
     }
 }
