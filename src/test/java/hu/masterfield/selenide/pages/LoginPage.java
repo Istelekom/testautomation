@@ -4,8 +4,7 @@ import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Condition.enabled;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byId;
-import static com.codeborne.selenide.Selectors.byXpath;
+import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -18,16 +17,17 @@ public class LoginPage extends BasePage {
     SelenideElement passwordInput = $(byId("password"));
 
     //WebElement loginButton;
-    SelenideElement loginButton = $(byXpath("/html/body/div[1]/div/div/div[3]/div[1]/div/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div/div[1]/div[2]/a"));
+    //SelenideElement loginButton = $(byXpath("/html/body/div[1]/div/div/div[3]/div[1]/div/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div/div[1]/div[2]/a"));
     // ennél elhasal... Element not found By.xpath: ... NoSuchElementException
     //SelenideElement loginButton = $(byXpath("//*[@id=\"content\"]/div/div[1]/div/div[1]/section/div/form/div/button/span"));
     //ez még rosszabb, el se jut a Bejelentkezés oldalra
+    SelenideElement loginButton = $(byClassName("button-primary")); // ezzel végre működött!!!
 
 
     public void openPage() {
         open("https://bevasarlas.tesco.hu/groceries/hu-HU/"); //ugyanaz mint a: Selenide.open() (így olvashatóbb, nem kell minidg elé írni a Selenide-t)
         isLoaded(loginButton);
-        loginButton.click(); // rá kkellene kattintani ???
+        loginButton.click(); // rá kellene kattintani ???
     }
 
     public void validateUI() {
