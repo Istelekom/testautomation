@@ -1,30 +1,25 @@
 package hu.masterfield.selenide.pages;
 
 import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.conditions.Text;
 
-import static com.codeborne.selenide.Condition.enabled;
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byId;
-import static com.codeborne.selenide.Selectors.byValue;
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.title;
 import static com.codeborne.selenide.WebDriverRunner.url;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AccountHomePage extends BasePage {
-    /* SelenideElement ....
-     *  */
+    // SelenideElement-ek ....
 
-    // Üdvözlünk
-    //Pisti
+    SelenideElement greetingMessage = $(byXpath("/html/body/div[1]/div/div/div[3]/div[1]/div/div[1]/div[1]/div[2]/div[2]/div[2]/h1/span[1]"));
 
-    SelenideElement greetingMessage = $(byValue("Üdvözlünk"));
-
-    SelenideElement greetingName = $(byValue("Pisti"));
+    SelenideElement greetingName = $(byXpath("/html/body/div[1]/div/div/div[3]/div[1]/div/div[1]/div[1]/div[2]/div[2]/div[2]/h1/span[2]"));
 
     public void validate() {
         /* "Üdvözlünk Pisti" szoveg ellenorzese */
-        greetingMessage.shouldBe(visible).shouldBe(enabled);
-        greetingName.shouldBe(visible).shouldBe(enabled);
+        greetingMessage.shouldHave(visible).shouldHave(text("Üdvözlünk"));
+        greetingName.shouldHave(visible).shouldHave(text("Pisti"));
     }
 }

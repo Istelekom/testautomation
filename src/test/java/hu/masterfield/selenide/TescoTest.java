@@ -21,6 +21,7 @@ public class TescoTest extends BaseTest {
         LoginPage loginPage = new LoginPage();
         loginPage.openPage();
         loginPage.validateTitle();
+        loginPage.acceptCookies(); // összes cookie elfogadása
         loginPage.validateUI();
         AccountHomePage accountHomePage = loginPage.login();
         accountHomePage.validate();

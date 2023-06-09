@@ -1,6 +1,8 @@
 package hu.masterfield.selenide.pages;
 
 import com.codeborne.selenide.SelenideElement;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 import static com.codeborne.selenide.Condition.enabled;
 import static com.codeborne.selenide.Condition.visible;
@@ -23,11 +25,20 @@ public class LoginPage extends BasePage {
     //ez még rosszabb, el se jut a Bejelentkezés oldalra
     SelenideElement loginButton = $(byClassName("button-primary")); // ezzel végre működött!!!
 
+    //SelenideElement acceptButton = $(byXpath("/html/body/div[1]/div/div/div[1]/div/span/div/div/div[2]/form[1]/button"));
+    //SelenideElement acceptButton = $(byXpath("//*[@id=\"sticky-bar-cookie-wrapper\"]/span/div/div/div[2]/form[1]/button/span/span"));
+    SelenideElement acceptButton = $(byClassName("beans-button__container")); // nem hiszem el, de ezzel működik ez is, xpath-szal sehogyse
 
     public void openPage() {
         open("https://bevasarlas.tesco.hu/groceries/hu-HU/"); //ugyanaz mint a: Selenide.open() (így olvashatóbb, nem kell minidg elé írni a Selenide-t)
         isLoaded(loginButton);
         loginButton.click(); // rá kellene kattintani ???
+    }
+
+    public void acceptCookies() {
+        // acceptButton = wait.until(driver -> driver.findElement(By.xpath("/html/body/div[1]/div/div/div[1]/div/span/div/div/div[2]/form[1]/button")));
+        isLoaded(acceptButton);
+        acceptButton.click();
     }
 
     public void validateUI() {
