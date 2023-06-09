@@ -10,6 +10,9 @@ public class BaseTest {
     public static void setup() {
         Configuration.reportsFolder = "target/reports";
         // Configuration. milyen browsert indítson el stb...
+        
+        // browser ablak mérete
+
 
         // ide kellett az alábbi kód, hogy ne legyen Access denied
         ChromeOptions options = new ChromeOptions();

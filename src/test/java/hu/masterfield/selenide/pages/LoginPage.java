@@ -31,8 +31,11 @@ public class LoginPage extends BasePage {
 
     public void openPage() {
         open("https://bevasarlas.tesco.hu/groceries/hu-HU/"); //ugyanaz mint a: Selenide.open() (így olvashatóbb, nem kell minidg elé írni a Selenide-t)
+    }
+
+    public void clickLogin() {
         isLoaded(loginButton);
-        loginButton.click(); // rá kellene kattintani ???
+        loginButton.click(); // rá kellene kattintani
     }
 
     public void acceptCookies() {

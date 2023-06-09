@@ -20,8 +20,9 @@ public class TescoTest extends BaseTest {
     public void testLogin() throws InterruptedException {
         LoginPage loginPage = new LoginPage();
         loginPage.openPage();
+        loginPage.acceptCookies(); // összes cookie elfogadása előbb
+        loginPage.clickLogin();
         loginPage.validateTitle();
-        loginPage.acceptCookies(); // összes cookie elfogadása
         loginPage.validateUI();
         AccountHomePage accountHomePage = loginPage.login();
         accountHomePage.validate();
